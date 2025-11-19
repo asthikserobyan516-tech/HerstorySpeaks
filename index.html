@@ -3,48 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <title>Женщины в истории</title>
-  <!-- Подключаем шрифт Oswald -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Стили для страниц "О нас" и "Контакты" */
+    .page-content {
+      max-width: 800px;
+      margin: 120px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .page-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #000;
+    }
+    .page-text {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .contact-info {
+      font-size: 24px;
+      margin: 20px 0;
+    }
+  </style>
 </head>
 <body>
-  <!-- Логотип -->
+  <!-- Логотип (всегда виден) -->
   <img src="ЛОГО.png" alt="Логотип" class="logo">
 
-  <!-- Кнопки -->
+  <!-- Кнопки навигации (всегда видны) -->
   <div class="nav-buttons">
-    <a href="home.html">Главная</a>
-    <a href="about.html">О нас</a>
-    <a href="contact.html">Контакты</a>
+    <a href="#home-page">Главная</a>
+    <a href="#about-page">О нас</a>
+    <a href="#contact-page">Контакты</a>
   </div>
-  
- <!-- Страница "О нас" -->
+
+  <!-- Главная страница -->
+  <div id="home-page">
+    <!-- Текст главной страницы -->
+    <div class="text">
+      ЖЕНЩИНЫ<br>
+      В ИСТОРИИ
+    </div>
+
+    <!-- Черная полоса с повторяющимся бегущим текстом -->
+    <div class="bottom-bar">
+      <div class="marquee">
+        <span>WOMEN IN HISTORY &nbsp;</span>
+        <span>WOMEN IN HISTORY &nbsp;</span>
+        <span>WOMEN IN HISTORY &nbsp;</span>
+        <span>WOMEN IN HISTORY &nbsp;</span>
+        <span>WOMEN IN HISTORY &nbsp;</span>
+        <span>WOMEN IN HISTORY &nbsp;</span>
+        <span>WOMEN IN HISTORY &nbsp;</span>
+        <span>WOMEN IN HISTORY &nbsp;</span>
+        <span>WOMEN IN HISTORY &nbsp;</span>
+        <span>WOMEN IN HISTORY &nbsp;</span>
+      </div>
+    </div>
+
+    <!-- Картинка кругов (теперь внутри главной страницы) -->
+    <img src="круги.png" alt="Круги" class="rotating-circles">
+
+    <!-- Картинка Артемиды (теперь внутри главной страницы) -->
+    <img src="артемида.png" alt="Артемида" class="artemis">
+  </div>
+
+  <!-- Страница "О нас" (изначально скрыта) -->
   <div id="about-page" style="display: none;">
     <div class="page-content">
       <h1 class="page-title">О нас</h1>
       <div class="page-text">
         Образовательно-просветительский проект про женщин в истории. Мой проект — способ рассказать о женщинах, чьи истории заслуживают быть услышанными. Они создавали искусство, науку, технологии и культуру, но их имена редко звучат в учебниках, их открытия замалчивают и присваивают другим, их вклад остается незамеченным. Я верю, что с помощью моего проекта это возможно изменить. Дать их достижениям видимость и признание.
       </div>
-      <a href="#home-page" class="back-button">На главную</a>
     </div>
   </div>
 
-  <!-- Страница "Контакты" -->
+  <!-- Страница "Контакты" (изначально скрыта) -->
   <div id="contact-page" style="display: none;">
     <div class="page-content">
       <h1 class="page-title">Контакты</h1>
       <div class="contact-info">Телефон: 89099394394</div>
       <div class="contact-info">Email: asthikserobyan516@gmail.com</div>
-      <a href="#home-page" class="back-button">На главную</a>
     </div>
   </div>
 
-  <!-- Текст -->
-  <div class="text">
-    ЖЕНЩИНЫ<br>
-    В ИСТОРИИ
-  </div>
-
+  <script>
+    // Навигация между страницами
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-buttons a');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetPage = this.getAttribute('href').substring(1);
+          
+          // Скрываем ВСЕ страницы
+          document.getElementById('home-page').style.display = 'none';
+          document.getElementById('about-page').style.display = 'none';
+          document.getElementById('contact-page').style.display = 'none';
+          
+          // Показываем только целевую страницу
+          document.getElementById(targetPage).style.display = 'block';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
   <!-- Черная полоса с повторяющимся бегущим текстом -->
   <div class="bottom-bar">
     <div class="marquee">
@@ -61,12 +131,7 @@
     </div>
   </div>
 
-  <!-- Картинка кругов -->
-  <img src="круги.png" alt="Круги" class="rotating-circles">
-
-  <!-- Картинка Артемиды -->
-  <img src="артемида.png" alt="Артемида" class="artemis">
-
+ 
 
  <!doctype html>
 <html lang="ru">
@@ -497,7 +562,4 @@
     }
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99ff9b7802476674',t:'MTc2MzM4NjQ4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-
-</html>
-
-
+</html>  
