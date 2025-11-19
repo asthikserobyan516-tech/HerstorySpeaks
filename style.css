@@ -1,7 +1,7 @@
 /* Общие стили */
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #fff;
   position: relative;
   font-family: 'Oswald', sans-serif;
@@ -10,17 +10,18 @@ body {
 /* Логотип */
 .logo {
   position: absolute;
-  top: 60px;
-  left: 100px;
-  width: 200px;
+  top: 7%;
+  left: 7%; /* Сдвинуто правее */
+  width: 15%;
   height: auto;
+  z-index: 100;
 }
 
 /* Кнопки рядом с логотипом */
 .nav-buttons {
   position: absolute;
-  top: 60px;
-  left: 350px;
+  top: 7%;
+  left: 25%; /* Сдвинуто правее */
   display: flex;
   gap: 30px;
 }
@@ -42,7 +43,7 @@ body {
 /* Заголовок */
 .text {
   position: absolute;
-  left: 100px;
+  left: 8%;
   bottom: 34%;
   font-size: 120px;
   line-height: 1;
@@ -57,7 +58,7 @@ body {
   height: 50px;
   background-color: #000;
   overflow: hidden;
-  box-shadow: 0 12px 15px rgba(0,0,0,0.6); /* Тень снизу */
+  box-shadow: 0 12px 15px rgba(0,0,0,0.6);
 }
 
 /* Бегущий текст */
@@ -87,7 +88,7 @@ body {
 .rotating-circles {
   position: absolute;
   top: 42%;
-  right: 320px;
+  right: 16%;
   transform: translateY(-50%);
   width: 500px;
   height: auto;
@@ -102,16 +103,81 @@ body {
     transform: translateY(-50%) rotate(360deg);
   }
 }
+
 /* Артемида */
 .artemis {
   position: absolute;
   bottom: 23%;
-  right: 15%;
+  right: 9%;
   width: 33%;
   height: auto;
 }
 
+/* Мобильная версия */
+@media (max-width: 768px) {
+  .logo {
+    top: 5%;
+    left: 5%;
+    width: 25%;
+  }
+  
+  .nav-buttons {
+    top: 5%;
+    left: 35%;
+    gap: 15px;
+    flex-direction: column;
+  }
+  
+  .nav-buttons a {
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+  
+  .text {
+    left: 5%;
+    bottom: 40%;
+    font-size: 60px;
+  }
+  
+  .rotating-circles {
+    top: 50%;
+    right: 5%;
+    width: 300px;
+  }
+  
+  .artemis {
+    bottom: 25%;
+    right: 5%;
+    width: 40%;
+  }
+  
+  .bottom-bar {
+    bottom: 10%;
+    height: 40px;
+  }
+  
+  .marquee {
+    font-size: 20px;
+    gap: 30px;
+  }
+}
 
-
-
-
+/* Маленькие мобильные */
+@media (max-width: 480px) {
+  .text {
+    font-size: 40px;
+    bottom: 45%;
+  }
+  
+  .rotating-circles {
+    width: 200px;
+  }
+  
+  .artemis {
+    width: 35%;
+  }
+  
+  .nav-buttons {
+    left: 40%;
+  }
+}
